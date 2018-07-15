@@ -12,6 +12,9 @@
   
 ## Examples
 
+### Example wiring for atmega8
+![atmega8 wiring](https://raw.githubusercontent.com/mcahriman/display-1602/master/doc_assets/wiring.png "PortC is used for commands definition, PORTD for data. Unfortunately you cannot  break the data to different ports")
+
 ### Initialize and write some text
 ```C
 void init() {
@@ -49,3 +52,11 @@ void write_some_text() {
     write_1602_line(5,"blink");
 }
 ```
+
+## Limitations:
+
+For now:
+  - 4 bit transfer mode is not implemented at the moment
+  - Display write is totaly sinchronous and takes not less than several milliseconds
+  - You cannot divide data pins to several ports (by design)
+  - You cannod divide command pins to several ports (design)
