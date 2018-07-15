@@ -8,7 +8,9 @@
 
 int main() {
 	init();
-	loop();
+	for(;;) {
+		loop();
+	}
 }
 
 void init() {
@@ -23,9 +25,7 @@ void init() {
 }
 
 void loop() {
-	for(;;) {
 
-	}
 }
 
 
