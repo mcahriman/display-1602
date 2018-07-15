@@ -29,24 +29,23 @@ void write_some_text() {
 ```
 ### Write some text at certain position at line
 ```C
- select_1602_line(CMD_1602_DDRAM_LINE1);
- write_1602_line(16,"Let it blink!");
- 
- 
- for(;;) {
+  select_1602_line(CMD_1602_DDRAM_LINE1);
+  write_1602_line(16,"Let it blink!   ");
 
-  delay_ms(500);
-   //add 7 symbols offset
-   
-   select_1602_line(CMD_1602_DDRAM_LINE1 + 7);
-   write_1602_line(5,"poops");
-   
-   //repeat last action
-   delay_ms(500);
-   //add 7 symbols offset
-   
-   select_1602_line(CMD_1602_DDRAM_LINE1 + 7);
-   write_1602_line(5,"blink");
 
+  for(;;) {
+  
+    _delay_ms(500);
+    //add 7 symbols offset
+
+    select_1602_line(CMD_1602_DDRAM_LINE1 + 7);
+    write_1602_line(5,"poops");
+
+    //repeat last action
+    _delay_ms(500);
+    //add 7 symbols offset
+
+    select_1602_line(CMD_1602_DDRAM_LINE1 + 7);
+    write_1602_line(5,"blink");
 }
 ```
