@@ -56,7 +56,9 @@ void write_some_text() {
 ## Limitations:
 
 For now:
-  - 4 bit transfer mode is not implemented at the moment
+  - 4 bit transfer mode is not implemented at the moment (also 74hc595 support is planned, but neither will be implemented until someone will ask me, or I will need it)
   - Display write is totaly sinchronous and takes not less than several milliseconds
   - You cannot divide data pins to several ports (by design)
   - You cannod divide command pins to several ports (design)
+  
+  - When I'll get strong vision on timing, maybe I'll add some async nature, with rtos-like x_delays. However, if the current code is suitable for attiny2313, maintaining tasks return points can render unbearable. 
