@@ -32,7 +32,7 @@ void write_1602_line(int count, char* buf) {
 //TODO: move cursor, etc
 
 void init_display() {
-	_delay_ms(1); //wait for display initialization
+	_delay_ms(15); //wait for display initialization
 
 	write_1602_command(CMD_1602_FUNC_SET_BIT | CMD_1602_FUNC_DL | CMD_1602_FUNC_N);
 	_delay_ms(1);
