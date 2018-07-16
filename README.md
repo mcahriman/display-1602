@@ -12,6 +12,9 @@
   
 ## Examples
 
+### Example wiring for atmega8
+![atmega8 wiring](https://raw.githubusercontent.com/mcahriman/display-1602/master/doc_assets/wiring.png "PortC is used for commands definition, PORTD for data. Unfortunately you cannot  break the data to different ports")
+
 ### Initialize and write some text
 ```C
 void init() {
@@ -49,3 +52,13 @@ void write_some_text() {
     write_1602_line(5,"blink");
 }
 ```
+
+## Limitations:
+
+For now:
+  - 4 bit transfer mode is not implemented at the moment (also 74hc595 support is planned, but neither will be implemented until someone will ask me, or I will need it)
+  - Display write is totaly sinchronous and takes not less than several milliseconds
+  - You cannot divide data pins to several ports (by design)
+  - You cannod divide command pins to several ports (design)
+  
+  - When I'll get strong vision on timing, maybe I'll add some async nature, with rtos-like x_delays. However, if the current code is suitable for attiny2313, maintaining tasks return points can render unbearable. 
