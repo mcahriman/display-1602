@@ -1,7 +1,7 @@
 # 1602 Display Library for AVR
 
 ## Usage
-  - add corresponding files (display1602.c, display1602.h) to your project
+  - add corresponding files (display1602.c, display1602.h) to your project (if you will add it using some packaging instrument please send me a note about, I'll be glad to add this to documentation
   - consider the build requirements, and check id F_CPU is set,
     as library utilizes busy-wait delay_ms and delay_ns functions.
   - check wiring. Command and data should use different ports.
