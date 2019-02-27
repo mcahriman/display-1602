@@ -15,7 +15,7 @@ int main() {
 
 void init() {
 	init_1602_pins();
-	init_display();
+	init_display(false);
 
 	select_1602_line(CMD_1602_DDRAM_LINE1);
 	write_1602_line(16,"It works!       ");

@@ -13,7 +13,6 @@
 #define DATA_1602_PORT PORTD
 #define DATA_1602_PORT_DDR DDRD
 
-
 //Clear display
 #define CMD_1602_CLS 0b00000001
 //Move cursor home
@@ -55,6 +54,15 @@
 #define CMD_1602_DDRAM_LINE2 0x40
 
 #define CMD_MASK (_BV(CONTROL_1602_E) | _BV(CONTROL_1602_RS) | _BV(CONTROL_1602_RW))
+#define DATA_MASK_4_BIT 0x0f;
+
+#define CMD_1602_CMD_MODE_BEGIN  CONTROL_1602_PORT = (CONTROL_1602_PORT & ~CMD_MASK) | _BV(CONTROL_1602_E);
+#define CMD_1602_DATA_MODE_BEGIN CONTROL_1602_PORT = (CONTROL_1602_PORT & ~CMD_MASK) \
+			| _BV(CONTROL_1602_RS) \
+			| _BV(CONTROL_1602_E)
+
+#define CMD_1602_CTRL_RELEASE CONTROL_1602_PORT &= ~CMD_MASK
+
 
 //TODO: Add 4 bit control mode
 //TODO: Add PWM control for V0
@@ -65,9 +73,18 @@
 #endif /* F_CPU WARNING */
 
 void init_1602_pins();
+void init_display(bool);
+
 void write_1602_command(uint8_t command);
-void init_display();
 void write_1602_char(uint8_t data);
+
+void write_1602_command_8_bit(uint8_t command);
+void write_1602_char_8_bit(uint8_t data);
+
+void write_1602_command_4_bit(uint8_t command);
+void write_1602_char_4_bit(uint8_t data);
+
+
 void select_1602_line(uint8_t address);
 void write_1602_line(int length, char* buf);
 
